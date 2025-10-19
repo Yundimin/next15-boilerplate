@@ -15,6 +15,7 @@ export const AuthContext = createContext<IAuthContext | null>(null);
 
 export function useAuth() {
   const result = useContext(AuthContext);
+  console.log(result);
   if (!result?.initialized) {
     throw new Error('Auth context must be used within a AuthProvider!');
   }
