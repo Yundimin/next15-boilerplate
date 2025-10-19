@@ -13,8 +13,6 @@ export default function Home() {
     _per_page: 10,
   });
 
-  console.log(users);
-
   const handleLogout = async () => {
     await signOut();
   };
