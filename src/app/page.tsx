@@ -1,11 +1,19 @@
 'use client';
 
 import { useAuth } from '@/contexts/auth-provider';
+import { useUsers } from '@/lib/user';
 import { css } from '@/styled-system/css';
 import { signOut } from 'next-auth/react';
 
 export default function Home() {
   const { session } = useAuth();
+
+  const { data: users } = useUsers({
+    _page: 1,
+    _per_page: 10,
+  });
+
+  console.log(users);
 
   const handleLogout = async () => {
     await signOut();
